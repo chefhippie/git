@@ -8,4 +8,6 @@ version "0.0.1"
 depends "build"
 recipe "git", "Installs/Configures git"
 
-supports "suse"
+supports "suse", ">= 12.3"
+supports "debian", ">= 7.0"
+supports "ubuntu", ">= 12.04"
