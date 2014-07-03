@@ -20,3 +20,8 @@
 default["git"]["packages"] = %w(
   git-core
 )
+
+default["git"]["zypper"]["alias"] = "devel-tools-scm"
+default["git"]["zypper"]["title"] = "Software configuration management"
+default["git"]["zypper"]["repo"] = "http://download.opensuse.org/repositories/devel:/tools:/scm/openSUSE_#{node["platform_version"]}/"
+default["git"]["zypper"]["key"] = "#{node["git"]["zypper"]["repo"]}repodata/repomd.xml.key"

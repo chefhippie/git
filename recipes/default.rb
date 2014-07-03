@@ -17,18 +17,21 @@
 # limitations under the License.
 #
 
-include_recipe "build"
+case node["platform_family"]
+when "suse"
+  include_recipe "zypper"
+
+  zypper_repository node["git"]["zypper"]["alias"] do
+    uri node["git"]["zypper"]["repo"]
+    key node["git"]["zypper"]["key"]
+    title node["git"]["zypper"]["title"]
+
+    action :add
+  end
+end
 
 node["git"]["packages"].each do |name|
   package name do
     action :install
-  end
-end
-
-execute "git_install_flow" do
-  command "wget --no-check-certificate -q -O - https://raw.github.com/nvie/gitflow/develop/contrib/gitflow-installer.sh | bash"
-
-  not_if do
-    ::File.exists? "/usr/local/bin/git-flow"
   end
 end
