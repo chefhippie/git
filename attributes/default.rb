@@ -21,6 +21,7 @@ default["git"]["packages"] = %w(
   git-core
 )
 
+default["git"]["zypper"]["enabled"] = true
 default["git"]["zypper"]["alias"] = "devel-tools-scm"
 default["git"]["zypper"]["title"] = "Software Configuration Management"
 default["git"]["zypper"]["repo"] = "http://download.opensuse.org/repositories/devel:/tools:/scm/openSUSE_#{node["platform_version"]}/"
