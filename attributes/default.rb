@@ -24,5 +24,5 @@ default["git"]["packages"] = %w(
 default["git"]["zypper"]["enabled"] = true
 default["git"]["zypper"]["alias"] = "devel-tools-scm"
 default["git"]["zypper"]["title"] = "Software Configuration Management"
-default["git"]["zypper"]["repo"] = "http://download.opensuse.org/repositories/devel:/tools:/scm/openSUSE_#{node["platform_version"]}/"
+default["git"]["zypper"]["repo"] = "http://download.opensuse.org/repositories/devel:/tools:/scm/openSUSE_#{node["platform_version"].to_i.to_s == node["platform_version"] ? "Factory" : node["platform_version"]}/"
 default["git"]["zypper"]["key"] = "#{node["git"]["zypper"]["repo"]}repodata/repomd.xml.key"
